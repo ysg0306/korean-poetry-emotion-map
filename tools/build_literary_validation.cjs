@@ -94,3 +94,13 @@ report.push('3. 재현 기록', '보완 전 스냅샷: ' + compiled.baselineSnap
   '그러면 현재 사전으로 보고서와 앱 검증 자료를 다시 만든다. 보완 전 스냅샷은 덮어쓰지 않는다.');
 fs.writeFileSync(path.join(root, 'docs/작품해석_문학적검증_초안.txt'), report.join('\n\n') + '\n');
 console.log('Built 15 interpretations and ' + compiled.cases.length + ' reproducible literary validation cases.');
+
+// Give every changed asset a content-based URL so Pages users receive matching code and data.
+const html = read('preview/index.html').replace(/(src|href)="([^"/?]+\.(?:js|css))(?:\?[^\"]*)?"/g,
+  (_, attribute, name) => {
+    const version = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'preview', name))).digest('hex').slice(0, 12);
+    return attribute + '="' + name + '?v=' + version + '"';
+  });
+fs.writeFileSync(path.join(root, 'preview/index.html'), html);
+fs.writeFileSync(path.join(root, 'index.html'), html.replace(/(src|href)="([^"/]+\.(?:js|css)\?[^\"]*)"/g,
+  '$1="preview/$2"'));

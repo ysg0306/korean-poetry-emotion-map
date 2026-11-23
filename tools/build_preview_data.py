@@ -121,7 +121,7 @@ for key, name, definition, color in definitions:
     row = re.search(r'^\| ' + re.escape(name) + r' \| ([^|]+) \|', spec, re.M)
     terms = [word.strip() for word in row[1].split(',')]
     assert len(terms) >= 10
-    emotions.append({'key':key, 'name':name, 'def':definition.strip(), 'color':color,
+    emotions.append({'k':key, 'key':key, 'name':name, 'def':definition.strip(), 'color':color,
                      'entries':[{'term':term, 'patterns':aliases.get(term, [])} for term in terms]})
 assert len(emotions) == 8
 additions = json.loads((ROOT / 'data/emotion-lexicon-additions.json').read_text(encoding='utf-8'))
@@ -144,6 +144,6 @@ print(f'User-selected poems: {len(compiled)}; sourced texts: {len(records)}; emo
 
 # GitHub Pages entry point. Keep the preview and published app on the same assets.
 entry = (ROOT / 'preview/index.html').read_text(encoding='utf-8')
-entry = entry.replace('href="style.css"', 'href="preview/style.css"')
+entry = re.sub(r'href="(style\.css(?:\?[^\"]*)?)"', r'href="preview/\1"', entry)
 entry = re.sub(r'src="([^"/]+\.js(?:\?[^\"]*)?)"', r'src="preview/\1"', entry)
 (ROOT / 'index.html').write_text(entry, encoding='utf-8')

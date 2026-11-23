@@ -1,6 +1,7 @@
-window.POETRY_LEXICON_VERSION = "preview-2026-11-24-negation-3";
+window.POETRY_LEXICON_VERSION = "preview-2026-11-24-audit-4";
 window.POETRY_EMOTIONS = [
   {
+    "k": "joy",
     "key": "joy",
     "name": "기쁨",
     "def": "즐거움이나 만족으로 마음이 밝아지고 활기를 느끼는 정서다.",
@@ -126,6 +127,7 @@ window.POETRY_EMOTIONS = [
     ]
   },
   {
+    "k": "sadness",
     "key": "sadness",
     "name": "슬픔",
     "def": "상실이나 고통을 마주하며 마음이 가라앉는 정서다.",
@@ -333,6 +335,7 @@ window.POETRY_EMOTIONS = [
     ]
   },
   {
+    "k": "longing",
     "key": "longing",
     "name": "그리움",
     "def": "부재하는 사람이나 장소, 시간을 다시 만나고 싶은 정서다.",
@@ -427,6 +430,7 @@ window.POETRY_EMOTIONS = [
     ]
   },
   {
+    "k": "love",
     "key": "love",
     "name": "사랑",
     "def": "대상과 가까워지고 아끼며 함께하고 싶은 정서다.",
@@ -518,6 +522,7 @@ window.POETRY_EMOTIONS = [
     ]
   },
   {
+    "k": "hope",
     "key": "hope",
     "name": "희망",
     "def": "어려움 속에서도 더 나은 미래를 기대하고 나아가려는 정서다.",
@@ -618,6 +623,7 @@ window.POETRY_EMOTIONS = [
     ]
   },
   {
+    "k": "anger",
     "key": "anger",
     "name": "분노",
     "def": "부당함이나 침해에 반발하고 맞서려는 정서다.",
@@ -703,6 +709,7 @@ window.POETRY_EMOTIONS = [
     ]
   },
   {
+    "k": "anxiety",
     "key": "anxiety",
     "name": "불안",
     "def": "불확실한 상황이나 위협을 의식해 긴장하고 염려하는 정서다.",
@@ -804,6 +811,7 @@ window.POETRY_EMOTIONS = [
     ]
   },
   {
+    "k": "peace",
     "key": "peace",
     "name": "평온",
     "def": "갈등과 긴장이 잦아들어 안정과 여유를 느끼는 정서다.",
@@ -819,7 +827,9 @@ window.POETRY_EMOTIONS = [
       },
       {
         "term": "고요",
-        "patterns": []
+        "patterns": [],
+        "rationale": "고요히의 정적은 감지하되, 그림자라고요 같은 인용 어미 속 고요는 평온으로 세지 않는다.",
+        "excludeBefore": "라$"
       },
       {
         "term": "잔잔함",

@@ -7,6 +7,10 @@ const { renderRadar } = window.PoetryCharts;
 const $ = id => document.getElementById(id);
 const results = poems.map(poem => poem.textReady ? analyze(poem.text) : null);
 let selected = 0;
+const mobileLayout = window.matchMedia('(max-width: 780px)');
+function setReadingLayout() { $('read-radar-details').open = !mobileLayout.matches; }
+mobileLayout.addEventListener('change', setReadingLayout);
+setReadingLayout();
 
 function el(tag, cls, text) {
   const node = document.createElement(tag);
@@ -87,7 +91,6 @@ function renderFlow(r, target = $('flow'), legendTarget = $('legend'), onSelect 
   const maximum = Math.max(1, ...r.lines.map(l => l.hits.length));
   const tickStep = Math.max(1, Math.ceil(maximum / 4));
   const axisMaximum = Math.ceil(maximum / tickStep) * tickStep;
-  const plotHeight = 160;
   const axis = el('div', 'flow-axis');
   const viewport = el('div', 'flow-scroll');
   const plot = el('div', 'flow-plot');
@@ -110,7 +113,7 @@ function renderFlow(r, target = $('flow'), legendTarget = $('legend'), onSelect 
     col.setAttribute('aria-label', line.no + '행: ' + line.hits.length + '회 감지');
     col.title = line.no + '행 · ' + line.hits.length + '회 감지';
     line.counts.forEach((count, key) => {
-      const bar = el('i'); bar.style.height = count / axisMaximum * plotHeight + 'px';
+      const bar = el('i'); bar.style.height = count / axisMaximum * 100 + '%';
       bar.style.background = emotions[key].color; col.append(bar);
     });
     col.append(el('span', '', line.no)); keyboardButton(col, () => onSelect(index)); plot.append(col);
@@ -138,6 +141,7 @@ function renderRecommendations(target, r, excluded) {
 }
 
 function select(index) {
+  const renderStartedAt = performance.now();
   selected = index; page('read');
   const poem = poems[index], r = results[index];
   $('title').textContent = poem.title;
@@ -147,21 +151,27 @@ function select(index) {
     b.classList.toggle('active', no === index); b.setAttribute('aria-pressed', no === index ? 'true' : 'false');
   });
   $('source').replaceChildren();
+  const sourceDetails = el('details', 'source-details');
+  sourceDetails.append(el('summary', '', '판본·발표·대조 자료'));
   if (poem.source && poem.sourceUrl) {
-    $('source').append(document.createTextNode('본문 출처: '), link(poem.source, poem.sourceUrl));
-    if (poem.displayNote) $('source').append(el('p', '', poem.displayNote));
-    if (poem.textNotes) $('source').append(el('p', '', poem.textNotes));
+    const primary = link('본문 출처: ' + poem.source, poem.sourceUrl);
+    primary.className = 'source-primary'; primary.title = poem.source;
+    $('source').append(primary);
+    sourceDetails.append(link(poem.source, poem.sourceUrl));
+    if (poem.displayNote) sourceDetails.append(el('p', '', poem.displayNote));
+    if (poem.textNotes) sourceDetails.append(el('p', '', poem.textNotes));
     if (poem.verificationSourceUrls && poem.verificationSourceUrls.length) {
       const refs = el('p', '', '대조 자료: ');
       poem.verificationSourceUrls.forEach((url, i) => {
         if (i) refs.append(document.createTextNode(' · '));
         refs.append(link(String(i + 1), url));
       });
-      $('source').append(refs);
+      sourceDetails.append(refs);
     }
   } else $('source').append(document.createTextNode('본문 출처 확인 중'));
-  $('source').append(el('p', '', '발표·수록 기록: ' + poem.bibliographicReference));
-  if (poem.metadataSourceUrls[0]) $('source').append(link('작품 서지 정보', poem.metadataSourceUrls[0]));
+  sourceDetails.append(el('p', '', '발표·수록 기록: ' + poem.bibliographicReference));
+  if (poem.metadataSourceUrls[0]) sourceDetails.append(link('작품 서지 정보', poem.metadataSourceUrls[0]));
+  $('source').append(sourceDetails);
   $('theme').textContent = poem.theme || '작품별 해석 준비 중';
   $('interp').textContent = poem.interp || '선정 작품의 실제 본문을 기준으로 주제와 해석을 별도로 작성할 예정입니다.';
   $('interpretation-emotions').textContent = '해석에서 읽은 정서 · ' + (poem.interpretationEmotionKeys || [])
@@ -182,8 +192,13 @@ function select(index) {
   renderPoem(poem, r); renderFlow(r);
   $('evidence').textContent = '본문이나 차트의 한 행을 선택해 감지 근거를 확인하세요.';
   renderRecommendations($('recs'), r, [poem.id]); $('lines').scrollTop = 0;
+  // QA timing covers synchronous DOM updates and layout, excluding browser-control transport.
+  $('read').getBoundingClientRect();
+  $('read').dataset.renderMs = (performance.now() - renderStartedAt).toFixed(1);
 }
 $('library-count').textContent = poems.length;
+emotions.forEach(emotion => $('emotion-definitions').append(
+  el('dt', '', emotion.name), el('dd', '', emotion.def)));
 poems.forEach((poem, i) => {
   const button = el('button', 'book');
   button.append(el('strong', '', poem.title), el('small', '', poem.poet + ' · ' + poem.year));

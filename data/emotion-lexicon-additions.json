@@ -1,63 +1,696 @@
 {
-  "version": "preview-2026-11-24-negation-3",
+  "version": "preview-2026-11-24-audit-4",
   "method": "선정 시 15편을 읽고 작성한 감정 사전 보완. 아래 분류와 이유는 앱 작성자의 해석이며 원작자의 정답이나 외부 감정 모델 결과가 아니다.",
   "entries": [
-    {"emotion":"joy","term":"고마움","patterns":["고맙게","고맙다","고마워","고마운"],"poemIds":["stolen-fields"],"rationale":"잘 자란 보리에 감사를 전하는 표현이다."},
-    {"emotion":"joy","term":"가뿐함","patterns":["가뿐","갑븐하다","갓부게나"],"poemIds":["stolen-fields"],"rationale":"몸과 마음이 가볍고 상쾌해지는 느낌이다."},
-    {"emotion":"joy","term":"생기","patterns":["뛰놀아라"],"poemIds":["spring-is-a-cat"],"rationale":"봄의 활력과 생동감을 드러낸다."},
-    {"emotion":"joy","term":"기꺼움","patterns":["기꺼이","기꺼운"],"poemIds":["i-am-a-king"],"rationale":"반갑고 즐거운 마음을 가리킨다. 작품에서는 눈물과 대비된다."},
-    {"emotion":"joy","term":"즐거움","patterns":["질검"],"poemIds":["cold-forehead"],"rationale":"'얼마나한 질검이랴'의 옛 표기를 감지한다."},
-    {"emotion":"joy","term":"웃음","patterns":["웃으렸다","웃으며","웃으시는","웃기를","웃는다","웃지요"],"excludeBefore":"비$","poemIds":["night-train","i-am-a-king","south-facing-window"],"rationale":"기존 사전이 놓치던 웃음의 활용형이다. 웃음이 곧 작품 전체의 행복을 뜻하지는 않는다."},
-
-    {"emotion":"sadness","term":"외로움","patterns":["외롭다","외로운","외롭게","외로워","외로된"],"poemIds":["cold-forehead","mirror"],"rationale":"대상과 단절되거나 혼자 남은 느낌이다."},
-    {"emotion":"sadness","term":"고독","patterns":["홀로"],"poemIds":["cold-forehead"],"rationale":"큰 어둠 가운데 혼자 있는 상황이 외로움과 연결된다."},
-    {"emotion":"sadness","term":"구슬픔","patterns":["구슬픈","구슬프다","구슬프게"],"poemIds":["i-am-a-king"],"rationale":"어머니의 이야기와 상두꾼의 노래가 자아내는 슬픔이다."},
-    {"emotion":"sadness","term":"처량함","patterns":["처량히","처량한","처량하다"],"poemIds":["i-am-a-king"],"rationale":"파랑새의 울음에 쓸쓸하고 서글픈 정서가 실린다."},
-    {"emotion":"sadness","term":"한숨","patterns":[],"poemIds":["i-am-a-king"],"rationale":"말로 다 하지 못하는 근심과 슬픔을 드러내는 몸짓이다."},
-    {"emotion":"sadness","term":"아픔","patterns":["아프다","아픈","아프고","아파","압흐다","압흐다고","속 아픈"],"poemIds":["a-bird","i-am-a-king"],"rationale":"몸의 아픔을 통해 마음의 고통을 드러낸다."},
-    {"emotion":"sadness","term":"가엾음","patterns":["가엾어라","가엾은","가엽슨","가엽다","가엽서라"],"poemIds":["a-bird","to-my-bedroom"],"rationale":"고통받는 대상이나 자신에 대한 연민이다."},
-    {"emotion":"sadness","term":"답답함","patterns":["답답워라","답답하다","답답한","답답해"],"poemIds":["stolen-fields"],"rationale":"들에 말을 걸지만 응답받지 못하는 막막한 심정이다."},
-    {"emotion":"sadness","term":"애달픔","patterns":["애닯어","애달파","애달퍼"],"poemIds":["lamentation"],"rationale":"두 발을 펴지 못하는 현실을 애달파하는 옛 표기다."},
-    {"emotion":"sadness","term":"서러움","patterns":["섧게","설으렸다","서러운","서러워"],"poemIds":["i-am-a-king","night-train"],"rationale":"울음과 이별에 연결되는 서러움의 활용형과 옛 표기다."},
-    {"emotion":"sadness","term":"서운함","patterns":["섭々하오","섭섭하오","섭섭한","서운하다","서운한"],"poemIds":["mirror"],"rationale":"거울 속 자신을 보살필 수 없는 데서 오는 안타까움이다."},
-    {"emotion":"sadness","term":"시름","patterns":["시름없이"],"poemIds":["i-am-a-king"],"rationale":"울음 곁에서 마음의 근심과 시름을 드러낸다."},
-    {"emotion":"sadness","term":"상실","patterns":["빼앗긴","빼앗겨","빼앗기것네","빼앗기는듯","빼앗기는 듯","쫓기어 난","쫓겨난","쫓겨가는"],"poemIds":["stolen-fields","departing-boat","cold-forehead","i-am-a-king"],"rationale":"땅이나 안식처를 잃고 내몰리는 상황을 상실의 단서로 본다."},
-    {"emotion":"sadness","term":"상실의 쓸쓸함","matchTerm":false,"patterns":["시들은 꽃","시든 꽃","싸늘한 먼지","사그라진 촛불"],"poemIds":["after-the-breeze"],"rationale":"옛날을 그리워하는 제단의 쇠잔한 사물들이 상실감을 드러낸다는 해석이다. 일반적인 꽃·먼지·촛불은 등록하지 않는다."},
-    {"emotion":"sadness","term":"울음","patterns":["울기는","울기만","울었소이다","울었","울지","울더랍니다","울더","울었나이다"],"excludeBefore":"(?:첫)?닭이\\s*$","poemIds":["lamentation","a-bird","i-am-a-king"],"rationale":"기존 사전이 놓치던 울음의 활용형을 추가한다. 첫닭이 우는 소리는 사람의 슬픔으로 세지 않는다."},
-
-    {"emotion":"longing","term":"보고 싶음","patterns":["보고십다","보고 싶다","보고싶다"],"poemIds":["stolen-fields"],"rationale":"익숙한 들과 사람들을 다시 보고 싶은 마음이다."},
-    {"emotion":"longing","term":"그리움","patterns":["기리은","기리는","그리워하는","그리운"],"excludeAfter":"^\\s*울음이\\s*아니(?:다|라)","poemIds":["cold-forehead","after-the-breeze"],"rationale":"마음에 간직한 별과 옛 시간을 향하는 그리움이다. 바로 뒤에서 울음의 동기를 부정하는 구문은 제외한다."},
-    {"emotion":"longing","term":"추억","patterns":["옛날 생각","옛날생각"],"poemIds":["after-the-breeze"],"rationale":"지나간 시간을 마음속에서 되돌아본다."},
-    {"emotion":"longing","term":"못 잊음","patterns":["못 잊는 마음","못잊는마음"],"poemIds":["departing-boat"],"rationale":"떠나면서도 관계와 장소를 잊지 못하는 미련이다."},
-
-    {"emotion":"love","term":"애틋한 부름","matchTerm":false,"patterns":["님이시여","나의 아씨여"],"poemIds":["after-the-breeze","to-my-bedroom"],"rationale":"사랑하는 대상을 간절히 부르는 호칭으로 읽는다. 일반적인 '님' 한 글자는 감지하지 않는다."},
-    {"emotion":"love","term":"어여쁨","patterns":["어여쁜","어여쁘다","어여뻐"],"poemIds":["i-am-a-king"],"rationale":"어머니와 아들의 관계에서 애정 어린 시선을 나타낸다."},
-    {"emotion":"love","term":"정열","patterns":["情熱"],"poemIds":["nongae"],"rationale":"논개의 헌신을 사랑에 견주어 표현하는 뜨거운 마음이다."},
-    {"emotion":"love","term":"입맞춤","patterns":["입맛췃네","입맞추","입맞췄"],"poemIds":["nongae"],"rationale":"죽음을 입맞춤으로 형상화한 비유다. 실제 연애 감정이라는 뜻은 아니다."},
-    {"emotion":"love","term":"품에 안음","patterns":["품겨서"],"poemIds":["a-bird"],"rationale":"새를 가슴에 품는 모습을 돌봄의 단서로 읽는다."},
-
-    {"emotion":"hope","term":"밝음을 향함","matchTerm":false,"patterns":["밝음을","찾어 가는","찾아 가는","찾아가는"],"poemIds":["night-train"],"rationale":"어둠을 헤쳐 더 밝은 곳으로 나아가는 방향성이다."},
-    {"emotion":"hope","term":"부활","patterns":["復活"],"poemIds":["to-my-bedroom"],"rationale":"침실을 새로운 생명과 재생의 공간으로 부르는 표현이다."},
-    {"emotion":"hope","term":"삶의 의지","patterns":["힘있게 사는길","힘있게 사는 길","힘 있게 사는 길"],"poemIds":["night-train"],"rationale":"죽음의 위협 속에서도 살아가려는 의지다."},
-    {"emotion":"hope","term":"전진","patterns":["헤처 나가는","헤쳐 나가는"],"poemIds":["night-train"],"rationale":"어둠을 뚫고 나아가는 능동적인 움직임이다."},
-    {"emotion":"hope","term":"두려움의 극복","matchTerm":false,"patterns":["죽엄이 무서우랴","죽음이 무서우랴"],"poemIds":["night-train"],"rationale":"죽음이 무섭겠느냐는 설의적 표현을 두려움에 맞서는 의지로 읽는다."},
-
-    {"emotion":"anger","term":"분노","patterns":["분로"],"poemIds":["nongae"],"rationale":"'거륵한분로'의 옛 표기를 현대어 분노와 연결한다."},
-    {"emotion":"anger","term":"원망","patterns":["푸념"],"poemIds":["after-the-breeze"],"rationale":"상실한 대상을 향한 탄식과 원망의 단서다."},
-    {"emotion":"anger","term":"흘김","patterns":["흘끼니","흘기니","흘겨","흘기다"],"poemIds":["lamentation"],"rationale":"하늘을 흘겨보는 몸짓에서 현실에 대한 반발을 읽는다."},
-    {"emotion":"anger","term":"웃음의 거부","matchTerm":false,"patterns":["웃지 마라","웃지마라"],"poemIds":["lamentation"],"rationale":"자신의 고통 앞에서 웃지 말라는 항의다. 이를 기쁨으로 세지 않는다."},
-
-    {"emotion":"anxiety","term":"두려움","patterns":["겁이 나서","겁이 나","겁나는","겁나다"],"poemIds":["i-am-a-king"],"rationale":"죽을까 두려워 우는 장면의 직접적인 감정 표현이다."},
-    {"emotion":"anxiety","term":"떨림","patterns":["떨며","떨면서","떨고","떨린다"],"poemIds":["to-my-bedroom"],"rationale":"어둠 속에서 기다리는 긴장과 두려움의 신체 반응이다."},
-    {"emotion":"anxiety","term":"무서움","patterns":["무서워하는","무서운","무섭다고","무서워"],"poemIds":["ogamdo-1"],"rationale":"공포를 말하는 활용형을 더 긴 단위로 강조한다."},
-    {"emotion":"anxiety","term":"막막함","patterns":["그저 아득","막막하다","막막한"],"poemIds":["night-train"],"rationale":"보내는 이와 떠나는 이가 앞날을 헤아리지 못하는 막막함이다. 거리의 '아득' 전체를 불안으로 고정하지 않는다."},
-    {"emotion":"anxiety","term":"발버둥","patterns":["발버둥치는","발버둥질치며"],"poemIds":["a-bird","i-am-a-king"],"rationale":"고통에 저항하는 절박한 신체 반응을 읽는다."},
-
-    {"emotion":"peace","term":"위로","patterns":["위로이랴","위로하다","위로해","위로받","위로하는"],"excludeAfter":"^\\s+(?:올라|오르|올리|떠오|향하|이동|간다|가는|가고|가라|가자)","poemIds":["cold-forehead"],"rationale":"작은 산꽃에서 마음을 달랠 가능성을 찾는다. 실제로 위로를 얻었다는 확정은 아니다. 위로 올라가는 방향 표현은 제외한다."},
-    {"emotion":"peace","term":"아늑함","patterns":["아늑한","안윽한","아늑하다","아늑해"],"poemIds":["departing-boat"],"rationale":"떠나기 어려운 항구의 익숙하고 편안한 느낌이다."},
-    {"emotion":"peace","term":"부드러움","patterns":["부드러운","부드럽다","부드럽게"],"poemIds":["spring-is-a-cat","stolen-fields"],"rationale":"고양이의 털과 흙을 통해 느끼는 온화한 촉감이다."},
-    {"emotion":"peace","term":"조용함","patterns":["조용한","조용하다","조용히"],"poemIds":["mirror"],"rationale":"거울 속 세계의 정적을 읽는 표면 단서다. 작품의 소외감 전체를 평온이라고 해석하지 않는다."},
-    {"emotion":"peace","term":"정신의 맑음","matchTerm":false,"patterns":["싸늘한 이마","맑게 트이여","맑게 트이어"],"poemIds":["cold-forehead"],"rationale":"'맑게 트이어'와 이어지는 싸늘한 이마는 정신이 맑아지는 감각으로 읽는다. '싸늘하다' 전체를 슬픔으로 고정하지 않는다."},
-    {"emotion":"peace","term":"포근함","patterns":["포근한","포근하다"],"poemIds":["spring-is-a-cat"],"rationale":"봄의 졸음이 주는 안온한 느낌이다."}
+    {
+      "emotion": "joy",
+      "term": "고마움",
+      "patterns": [
+        "고맙게",
+        "고맙다",
+        "고마워",
+        "고마운"
+      ],
+      "poemIds": [
+        "stolen-fields"
+      ],
+      "rationale": "잘 자란 보리에 감사를 전하는 표현이다."
+    },
+    {
+      "emotion": "joy",
+      "term": "가뿐함",
+      "patterns": [
+        "가뿐",
+        "갑븐하다",
+        "갓부게나"
+      ],
+      "poemIds": [
+        "stolen-fields"
+      ],
+      "rationale": "몸과 마음이 가볍고 상쾌해지는 느낌이다."
+    },
+    {
+      "emotion": "joy",
+      "term": "생기",
+      "patterns": [
+        "뛰놀아라"
+      ],
+      "poemIds": [
+        "spring-is-a-cat"
+      ],
+      "rationale": "봄의 활력과 생동감을 드러낸다."
+    },
+    {
+      "emotion": "joy",
+      "term": "기꺼움",
+      "patterns": [
+        "기꺼이",
+        "기꺼운"
+      ],
+      "poemIds": [
+        "i-am-a-king"
+      ],
+      "rationale": "반갑고 즐거운 마음을 가리킨다. 작품에서는 눈물과 대비된다."
+    },
+    {
+      "emotion": "joy",
+      "term": "즐거움",
+      "patterns": [
+        "질검"
+      ],
+      "poemIds": [
+        "cold-forehead"
+      ],
+      "rationale": "'얼마나한 질검이랴'의 옛 표기를 감지한다."
+    },
+    {
+      "emotion": "joy",
+      "term": "웃음",
+      "patterns": [
+        "웃으렸다",
+        "웃으며",
+        "웃으시는",
+        "웃기를",
+        "웃는다",
+        "웃지요"
+      ],
+      "excludeBefore": "비$",
+      "poemIds": [
+        "night-train",
+        "i-am-a-king",
+        "south-facing-window"
+      ],
+      "rationale": "기존 사전이 놓치던 웃음의 활용형이다. 웃음이 곧 작품 전체의 행복을 뜻하지는 않는다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "외로움",
+      "patterns": [
+        "외롭다",
+        "외로운",
+        "외롭게",
+        "외로워",
+        "외로된"
+      ],
+      "poemIds": [
+        "cold-forehead",
+        "mirror"
+      ],
+      "rationale": "대상과 단절되거나 혼자 남은 느낌이다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "고독",
+      "patterns": [
+        "홀로"
+      ],
+      "poemIds": [
+        "cold-forehead"
+      ],
+      "rationale": "큰 어둠 가운데 혼자 있는 상황이 외로움과 연결된다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "구슬픔",
+      "patterns": [
+        "구슬픈",
+        "구슬프다",
+        "구슬프게"
+      ],
+      "poemIds": [
+        "i-am-a-king"
+      ],
+      "rationale": "어머니의 이야기와 상두꾼의 노래가 자아내는 슬픔이다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "처량함",
+      "patterns": [
+        "처량히",
+        "처량한",
+        "처량하다"
+      ],
+      "poemIds": [
+        "i-am-a-king"
+      ],
+      "rationale": "파랑새의 울음에 쓸쓸하고 서글픈 정서가 실린다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "한숨",
+      "patterns": [],
+      "poemIds": [
+        "i-am-a-king"
+      ],
+      "rationale": "말로 다 하지 못하는 근심과 슬픔을 드러내는 몸짓이다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "아픔",
+      "patterns": [
+        "아프다",
+        "아픈",
+        "아프고",
+        "아파",
+        "압흐다",
+        "압흐다고",
+        "속 아픈"
+      ],
+      "poemIds": [
+        "a-bird",
+        "i-am-a-king"
+      ],
+      "rationale": "몸의 아픔을 통해 마음의 고통을 드러낸다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "가엾음",
+      "patterns": [
+        "가엾어라",
+        "가엾은",
+        "가엽슨",
+        "가엽다",
+        "가엽서라"
+      ],
+      "poemIds": [
+        "a-bird",
+        "to-my-bedroom"
+      ],
+      "rationale": "고통받는 대상이나 자신에 대한 연민이다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "답답함",
+      "patterns": [
+        "답답워라",
+        "답답하다",
+        "답답한",
+        "답답해"
+      ],
+      "poemIds": [
+        "stolen-fields"
+      ],
+      "rationale": "들에 말을 걸지만 응답받지 못하는 막막한 심정이다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "애달픔",
+      "patterns": [
+        "애닯어",
+        "애달파",
+        "애달퍼"
+      ],
+      "poemIds": [
+        "lamentation"
+      ],
+      "rationale": "두 발을 펴지 못하는 현실을 애달파하는 옛 표기다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "서러움",
+      "patterns": [
+        "섧게",
+        "설으렸다",
+        "서러운",
+        "서러워"
+      ],
+      "poemIds": [
+        "i-am-a-king",
+        "night-train"
+      ],
+      "rationale": "울음과 이별에 연결되는 서러움의 활용형과 옛 표기다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "서운함",
+      "patterns": [
+        "섭々하오",
+        "섭섭하오",
+        "섭섭한",
+        "서운하다",
+        "서운한"
+      ],
+      "poemIds": [
+        "mirror"
+      ],
+      "rationale": "거울 속 자신을 보살필 수 없는 데서 오는 안타까움이다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "시름",
+      "patterns": [
+        "시름없이"
+      ],
+      "poemIds": [
+        "i-am-a-king"
+      ],
+      "rationale": "울음 곁에서 마음의 근심과 시름을 드러낸다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "상실",
+      "patterns": [
+        "빼앗긴",
+        "빼앗겨",
+        "빼앗기것네",
+        "빼앗기는듯",
+        "빼앗기는 듯",
+        "쫓기어 난",
+        "쫓겨난",
+        "쫓겨가는"
+      ],
+      "poemIds": [
+        "stolen-fields",
+        "departing-boat",
+        "cold-forehead",
+        "i-am-a-king"
+      ],
+      "rationale": "땅이나 안식처를 잃고 내몰리는 상황을 상실의 단서로 본다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "상실의 쓸쓸함",
+      "matchTerm": false,
+      "patterns": [
+        "시들은 꽃",
+        "시든 꽃",
+        "싸늘한 먼지",
+        "사그라진 촛불"
+      ],
+      "poemIds": [
+        "after-the-breeze"
+      ],
+      "rationale": "옛날을 그리워하는 제단의 쇠잔한 사물들이 상실감을 드러낸다는 해석이다. 일반적인 꽃·먼지·촛불은 등록하지 않는다."
+    },
+    {
+      "emotion": "sadness",
+      "term": "울음",
+      "patterns": [
+        "울기는",
+        "울기만",
+        "울었소이다",
+        "울었",
+        "울지",
+        "울더랍니다",
+        "울더",
+        "울었나이다"
+      ],
+      "excludeBefore": "(?:첫)?닭이\\s*$",
+      "poemIds": [
+        "lamentation",
+        "a-bird",
+        "i-am-a-king"
+      ],
+      "rationale": "기존 사전이 놓치던 울음의 활용형을 추가한다. 첫닭이 우는 소리는 사람의 슬픔으로 세지 않는다."
+    },
+    {
+      "emotion": "longing",
+      "term": "보고 싶음",
+      "patterns": [
+        "보고십다",
+        "보고 싶다",
+        "보고싶다"
+      ],
+      "poemIds": [
+        "stolen-fields"
+      ],
+      "rationale": "익숙한 들과 사람들을 다시 보고 싶은 마음이다."
+    },
+    {
+      "emotion": "longing",
+      "term": "그리움",
+      "patterns": [
+        "기리은",
+        "기리는",
+        "그리워하는",
+        "그리운"
+      ],
+      "excludeAfter": "^\\s*울음이\\s*아니(?:다|라)",
+      "poemIds": [
+        "cold-forehead",
+        "after-the-breeze"
+      ],
+      "rationale": "마음에 간직한 별과 옛 시간을 향하는 그리움이다. 바로 뒤에서 울음의 동기를 부정하는 구문은 제외한다."
+    },
+    {
+      "emotion": "longing",
+      "term": "추억",
+      "patterns": [
+        "옛날 생각",
+        "옛날생각"
+      ],
+      "poemIds": [
+        "after-the-breeze"
+      ],
+      "rationale": "지나간 시간을 마음속에서 되돌아본다."
+    },
+    {
+      "emotion": "longing",
+      "term": "못 잊음",
+      "patterns": [
+        "못 잊는 마음",
+        "못잊는마음"
+      ],
+      "poemIds": [
+        "departing-boat"
+      ],
+      "rationale": "떠나면서도 관계와 장소를 잊지 못하는 미련이다."
+    },
+    {
+      "emotion": "love",
+      "term": "애틋한 부름",
+      "matchTerm": false,
+      "patterns": [
+        "님이시여",
+        "나의 아씨여"
+      ],
+      "poemIds": [
+        "after-the-breeze",
+        "to-my-bedroom"
+      ],
+      "rationale": "사랑하는 대상을 간절히 부르는 호칭으로 읽는다. 일반적인 '님' 한 글자는 감지하지 않는다."
+    },
+    {
+      "emotion": "love",
+      "term": "어여쁨",
+      "patterns": [
+        "어여쁜",
+        "어여쁘다",
+        "어여뻐"
+      ],
+      "poemIds": [
+        "i-am-a-king"
+      ],
+      "rationale": "어머니와 아들의 관계에서 애정 어린 시선을 나타낸다."
+    },
+    {
+      "emotion": "love",
+      "term": "정열",
+      "patterns": [
+        "情熱"
+      ],
+      "poemIds": [
+        "nongae"
+      ],
+      "rationale": "논개의 헌신을 사랑에 견주어 표현하는 뜨거운 마음이다."
+    },
+    {
+      "emotion": "love",
+      "term": "입맞춤",
+      "patterns": [
+        "입맛췃네",
+        "입맞추",
+        "입맞췄"
+      ],
+      "poemIds": [
+        "nongae"
+      ],
+      "rationale": "죽음을 입맞춤으로 형상화한 비유다. 실제 연애 감정이라는 뜻은 아니다."
+    },
+    {
+      "emotion": "love",
+      "term": "품에 안음",
+      "patterns": [
+        "품겨서"
+      ],
+      "poemIds": [
+        "a-bird"
+      ],
+      "rationale": "새를 가슴에 품는 모습을 돌봄의 단서로 읽는다."
+    },
+    {
+      "emotion": "hope",
+      "term": "밝음을 향함",
+      "matchTerm": false,
+      "patterns": [
+        "밝음을",
+        "찾어 가는",
+        "찾아 가는",
+        "찾아가는"
+      ],
+      "poemIds": [
+        "night-train"
+      ],
+      "rationale": "어둠을 헤쳐 더 밝은 곳으로 나아가는 방향성이다."
+    },
+    {
+      "emotion": "hope",
+      "term": "부활",
+      "patterns": [
+        "復活"
+      ],
+      "poemIds": [
+        "to-my-bedroom"
+      ],
+      "rationale": "침실을 새로운 생명과 재생의 공간으로 부르는 표현이다."
+    },
+    {
+      "emotion": "hope",
+      "term": "삶의 의지",
+      "patterns": [
+        "힘있게 사는길",
+        "힘있게 사는 길",
+        "힘 있게 사는 길"
+      ],
+      "poemIds": [
+        "night-train"
+      ],
+      "rationale": "죽음의 위협 속에서도 살아가려는 의지다."
+    },
+    {
+      "emotion": "hope",
+      "term": "전진",
+      "patterns": [
+        "헤처 나가는",
+        "헤쳐 나가는"
+      ],
+      "poemIds": [
+        "night-train"
+      ],
+      "rationale": "어둠을 뚫고 나아가는 능동적인 움직임이다."
+    },
+    {
+      "emotion": "hope",
+      "term": "두려움의 극복",
+      "matchTerm": false,
+      "patterns": [
+        "죽엄이 무서우랴",
+        "죽음이 무서우랴"
+      ],
+      "poemIds": [
+        "night-train"
+      ],
+      "rationale": "죽음이 무섭겠느냐는 설의적 표현을 두려움에 맞서는 의지로 읽는다."
+    },
+    {
+      "emotion": "anger",
+      "term": "분노",
+      "patterns": [
+        "분로"
+      ],
+      "poemIds": [
+        "nongae"
+      ],
+      "rationale": "'거륵한분로'의 옛 표기를 현대어 분노와 연결한다."
+    },
+    {
+      "emotion": "anger",
+      "term": "원망",
+      "patterns": [
+        "푸념"
+      ],
+      "poemIds": [
+        "after-the-breeze"
+      ],
+      "rationale": "상실한 대상을 향한 탄식과 원망의 단서다."
+    },
+    {
+      "emotion": "anger",
+      "term": "흘김",
+      "patterns": [
+        "흘끼니",
+        "흘기니",
+        "흘겨",
+        "흘기다"
+      ],
+      "poemIds": [
+        "lamentation"
+      ],
+      "rationale": "하늘을 흘겨보는 몸짓에서 현실에 대한 반발을 읽는다."
+    },
+    {
+      "emotion": "anger",
+      "term": "웃음의 거부",
+      "matchTerm": false,
+      "patterns": [
+        "웃지 마라",
+        "웃지마라"
+      ],
+      "poemIds": [
+        "lamentation"
+      ],
+      "rationale": "자신의 고통 앞에서 웃지 말라는 항의다. 이를 기쁨으로 세지 않는다."
+    },
+    {
+      "emotion": "anxiety",
+      "term": "두려움",
+      "patterns": [
+        "겁이 나서",
+        "겁이 나",
+        "겁나는",
+        "겁나다"
+      ],
+      "poemIds": [
+        "i-am-a-king"
+      ],
+      "rationale": "죽을까 두려워 우는 장면의 직접적인 감정 표현이다."
+    },
+    {
+      "emotion": "anxiety",
+      "term": "떨림",
+      "patterns": [
+        "떨며",
+        "떨면서",
+        "떨고",
+        "떨린다"
+      ],
+      "poemIds": [
+        "to-my-bedroom"
+      ],
+      "rationale": "어둠 속에서 기다리는 긴장과 두려움의 신체 반응이다."
+    },
+    {
+      "emotion": "anxiety",
+      "term": "무서움",
+      "patterns": [
+        "무서워하는",
+        "무서운",
+        "무섭다고",
+        "무서워"
+      ],
+      "poemIds": [
+        "ogamdo-1"
+      ],
+      "rationale": "공포를 말하는 활용형을 더 긴 단위로 강조한다."
+    },
+    {
+      "emotion": "anxiety",
+      "term": "막막함",
+      "patterns": [
+        "그저 아득",
+        "막막하다",
+        "막막한"
+      ],
+      "poemIds": [
+        "night-train"
+      ],
+      "rationale": "보내는 이와 떠나는 이가 앞날을 헤아리지 못하는 막막함이다. 거리의 '아득' 전체를 불안으로 고정하지 않는다."
+    },
+    {
+      "emotion": "anxiety",
+      "term": "발버둥",
+      "patterns": [
+        "발버둥치는",
+        "발버둥질치며"
+      ],
+      "poemIds": [
+        "a-bird",
+        "i-am-a-king"
+      ],
+      "rationale": "고통에 저항하는 절박한 신체 반응을 읽는다."
+    },
+    {
+      "emotion": "peace",
+      "term": "위로",
+      "patterns": [
+        "위로이랴",
+        "위로하다",
+        "위로해",
+        "위로받",
+        "위로하는"
+      ],
+      "excludeAfter": "^\\s+(?:올라|오르|올리|떠오|향하|이동|간다|가는|가고|가라|가자)",
+      "poemIds": [
+        "cold-forehead"
+      ],
+      "rationale": "작은 산꽃에서 마음을 달랠 가능성을 찾는다. 실제로 위로를 얻었다는 확정은 아니다. 위로 올라가는 방향 표현은 제외한다."
+    },
+    {
+      "emotion": "peace",
+      "term": "아늑함",
+      "patterns": [
+        "아늑한",
+        "안윽한",
+        "아늑하다",
+        "아늑해"
+      ],
+      "poemIds": [
+        "departing-boat"
+      ],
+      "rationale": "떠나기 어려운 항구의 익숙하고 편안한 느낌이다."
+    },
+    {
+      "emotion": "peace",
+      "term": "부드러움",
+      "patterns": [
+        "부드러운",
+        "부드럽다",
+        "부드럽게"
+      ],
+      "poemIds": [
+        "spring-is-a-cat",
+        "stolen-fields"
+      ],
+      "rationale": "고양이의 털과 흙을 통해 느끼는 온화한 촉감이다."
+    },
+    {
+      "emotion": "peace",
+      "term": "조용함",
+      "patterns": [
+        "조용한",
+        "조용하다",
+        "조용히"
+      ],
+      "poemIds": [
+        "mirror"
+      ],
+      "rationale": "거울 속 세계의 정적을 읽는 표면 단서다. 작품의 소외감 전체를 평온이라고 해석하지 않는다."
+    },
+    {
+      "emotion": "peace",
+      "term": "정신의 맑음",
+      "matchTerm": false,
+      "patterns": [
+        "싸늘한 이마",
+        "맑게 트이여",
+        "맑게 트이어"
+      ],
+      "poemIds": [
+        "cold-forehead"
+      ],
+      "rationale": "'맑게 트이어'와 이어지는 싸늘한 이마는 정신이 맑아지는 감각으로 읽는다. '싸늘하다' 전체를 슬픔으로 고정하지 않는다."
+    },
+    {
+      "emotion": "peace",
+      "term": "포근함",
+      "patterns": [
+        "포근한",
+        "포근하다"
+      ],
+      "poemIds": [
+        "spring-is-a-cat"
+      ],
+      "rationale": "봄의 졸음이 주는 안온한 느낌이다."
+    },
+    {
+      "emotion": "peace",
+      "term": "고요",
+      "patterns": [],
+      "excludeBefore": "라$",
+      "poemIds": [
+        "spring-is-a-cat"
+      ],
+      "rationale": "고요히의 정적은 감지하되, 그림자라고요 같은 인용 어미 속 고요는 평온으로 세지 않는다."
+    }
   ]
 }

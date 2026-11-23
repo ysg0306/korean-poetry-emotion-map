@@ -42,6 +42,7 @@ window.PoetryAnalyzer = (() => {
       matchedLineCount: lines.filter(line => line.hits.length).length,
       vec: totals.map(value => totalHits ? value / totalHits : 0),
       dominantKeys: maximum ? totals.flatMap((value, index) => value === maximum ? [index] : []) : [],
+      dominant: maximum ? emotions[totals.indexOf(maximum)].key : null,
       method: 'lexicon', lexiconVersion: window.POETRY_LEXICON_VERSION
     };
   }

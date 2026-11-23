@@ -11,10 +11,20 @@ for (const file of ['poems.js', 'lexicon.js', 'analyzer.js', 'validation.js']) {
 const poems = context.window.POETRY_POEMS;
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data/selected-poems.json'), 'utf8').replace(/^\uFEFF/, ''));
 assert.equal(poems.length, 15);
+assert.equal(new Set(poems.map(p => p.id)).size, 15);
+assert.ok(catalog.poems.filter(p => p.newRelativeToExample).length >= 5);
+assert.ok(context.window.POETRY_EMOTIONS.length >= 6 && context.window.POETRY_EMOTIONS.length <= 10);
+for (const emotion of context.window.POETRY_EMOTIONS) {
+  assert.equal(emotion.k, emotion.key);
+  assert.ok(emotion.def && emotion.color && emotion.entries.length >= 10);
+}
 assert.equal(JSON.stringify(poems.map(p => p.id)), JSON.stringify(catalog.poems.map(p => p.id)));
 let hits = 0;
 for (const poem of poems) {
   assert.ok(poem.textReady && poem.text && poem.sourceUrl, poem.id);
+  assert.ok(poem.poetDeath < 1962 && poem.poet && poem.year && poem.source, poem.id);
+  assert.ok(/^https:\/\//.test(poem.sourceUrl), poem.id);
+  assert.doesNotMatch(poem.text, /[ㄱ-ㅎㅏ-ㅣ]/u, poem.id);
   assert.doesNotMatch(poem.text, /[\u1100-\u11ff\ua960-\ua97f\ud7b0-\ud7ff\ufffd]/u, poem.id);
   assert.equal(poem.text, poem.text.normalize('NFC'), poem.id);
   assert.ok(poem.theme && poem.interp, poem.id);
@@ -27,6 +37,7 @@ for (const poem of poems) {
   const expected = poem.sourceText.replace(/[\u112d\u112f\u1132\u1136]/g, c => initials[c]).normalize('NFC');
   assert.equal(poem.text, expected, `Unexpected word or line-break change: ${poem.id}`);
   const result = context.window.PoetryAnalyzer.analyze(poem.text);
+  assert.equal(result.dominant, context.window.POETRY_EMOTIONS[result.dominantKeys[0]].key);
   assert.ok(result.totalHits > 0, poem.id);
   assert.ok(Math.abs(result.vec.reduce((a, b) => a + b, 0) - 1) < 1e-12, poem.id);
   for (const line of result.lines) {
@@ -81,6 +92,8 @@ assert.equal(analyze('위로 올라간다').totalHits, 0);
 assert.equal(analyze('첫닭이 울고').totalHits, 0);
 assert.equal(analyze('비웃지').totalHits, 0);
 assert.equal(analyze('차가운 물과 먼지').totalHits, 0);
+assert.equal(analyze('그림자라고요').totalHits, 0);
+expectHit('고요히', '고요', 'peace');
 assert.ok(analyze('하늘이 그리워').vec[2] > 0);
 assert.equal(analyze('하늘이 그리워 울음이 아니다').vec[2], 0);
 assert.equal(analyze('하늘이 그리워 울음이 아니라').vec[2], 0);
@@ -113,5 +126,15 @@ assert.equal(negation.beforeResult.totalHits, 7);
 assert.equal(negation.currentResult.totalHits, 6);
 assert.ok(negation.beforeResult.vec[2] > 0);
 assert.equal(negation.currentResult.vec[2], 0);
+for (const entryFile of ['index.html', 'preview/index.html']) {
+  const html = fs.readFileSync(path.join(root, entryFile), 'utf8');
+  const assets = [...html.matchAll(/(?:src|href)="([^"?]+\.(?:js|css))(?:\?v=([^\"]+))?"/g)];
+  assert.equal(assets.length, 7, entryFile);
+  for (const [, relative, version] of assets) {
+    const bytes = fs.readFileSync(path.resolve(root, path.dirname(entryFile), relative));
+    assert.equal(version, require('node:crypto').createHash('sha256').update(bytes).digest('hex').slice(0, 12), relative);
+  }
+}
 console.log(`PASS: ${poems.length} poems; no loose Hangul Jamo; ${hits} highlight offsets; normalized emotion ratios.`);
 console.log('PASS: 15 interpretations, 3 literary validation cases, both analysis snapshots replayed.');
+console.log('PASS: submission metadata, category definitions and minimum terms, published assets and cache versions.');

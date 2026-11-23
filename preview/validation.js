@@ -3,9 +3,9 @@ window.POETRY_VALIDATION = {
   "createdAt": "2026-11-24",
   "intro": "감정 사전의 계산 결과와 시 전체에서 읽히는 정서를 비교했다. 차이가 있는 세 작품을 골라, 단어만 세었을 때 놓치는 부분과 개선할 방법을 정리했다.",
   "beforeVersion": "preview-2026-11-23-modern-2",
-  "currentVersion": "preview-2026-11-24-negation-3",
+  "currentVersion": "preview-2026-11-24-audit-4",
   "baselineSnapshot": "docs/validation-snapshots/2026-11-24-eff6aebe9e42/snapshot.json",
-  "currentSnapshot": "docs/validation-snapshots/2026-11-24-ef4b06c9fc9a/snapshot.json",
+  "currentSnapshot": "docs/validation-snapshots/2026-11-24-766230d44d82/snapshot.json",
   "cases": [
     {
       "id": "spring-and-loss",
@@ -1160,8 +1160,9 @@ window.POETRY_VALIDATION = {
         "dominantKeys": [
           0
         ],
+        "dominant": "joy",
         "method": "lexicon",
-        "lexiconVersion": "preview-2026-11-24-negation-3"
+        "lexiconVersion": "preview-2026-11-24-audit-4"
       },
       "evidence": [
         {
@@ -1736,8 +1737,9 @@ window.POETRY_VALIDATION = {
         "dominantKeys": [
           1
         ],
+        "dominant": "sadness",
         "method": "lexicon",
-        "lexiconVersion": "preview-2026-11-24-negation-3"
+        "lexiconVersion": "preview-2026-11-24-audit-4"
       },
       "evidence": [
         {
@@ -2348,8 +2350,9 @@ window.POETRY_VALIDATION = {
         "dominantKeys": [
           1
         ],
+        "dominant": "sadness",
         "method": "lexicon",
-        "lexiconVersion": "preview-2026-11-24-negation-3"
+        "lexiconVersion": "preview-2026-11-24-audit-4"
       },
       "evidence": [
         {
