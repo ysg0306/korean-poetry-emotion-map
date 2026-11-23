@@ -145,5 +145,5 @@ print(f'User-selected poems: {len(compiled)}; sourced texts: {len(records)}; emo
 # GitHub Pages entry point. Keep the preview and published app on the same assets.
 entry = (ROOT / 'preview/index.html').read_text(encoding='utf-8')
 entry = entry.replace('href="style.css"', 'href="preview/style.css"')
-entry = re.sub(r'src="([^"/]+\.js)"', r'src="preview/\1"', entry)
+entry = re.sub(r'src="([^"/]+\.js(?:\?[^\"]*)?)"', r'src="preview/\1"', entry)
 (ROOT / 'index.html').write_text(entry, encoding='utf-8')

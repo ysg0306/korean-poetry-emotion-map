@@ -42,13 +42,19 @@ window.PoetryCharts = (() => {
     chart.append(svgNode('polygon', { points: emotions.map((_, i) => point(i, radius * result.vec[i]).join(',')).join(' '),
       class: 'radar-profile' }));
     [0.25, 0.5, 0.75, 1].forEach(scale => {
-      chart.append(svgNode('text', { x: cx + radius * scale * 0.383 + 4,
-        y: cy - radius * scale * 0.924 - 2, class: 'radar-tick' }, scale * 100 + '%'));
+      chart.append(svgNode('text', { x: cx + 7,
+        y: cy - radius * scale - 3, class: 'radar-tick' }, scale * 100 + '%'));
     });
+    // Zero-valued axes share the same origin; do not invent a nonzero radius.
+    const zeroEmotions = emotions.filter((_, i) => result.vec[i] === 0);
+    const origin = svgNode('circle', { cx, cy, r: 3, class: 'radar-origin' });
+    origin.append(svgNode('title', {}, '중심 0%' + (zeroEmotions.length
+      ? ' · ' + zeroEmotions.map(e => e.name).join(', ') : '')));
+    chart.append(origin);
     emotions.forEach((emotion, i) => {
       const [x, y] = point(i, radius * result.vec[i]);
       if (result.vec[i] > 0) {
-        const dot = svgNode('circle', { cx: x, cy: y, r: 3.5, fill: emotion.color, class: 'radar-point' });
+        const dot = svgNode('circle', { cx: x, cy: y, r: 3.5, class: 'radar-point' });
         dot.append(svgNode('title', {}, emotion.name + ' ' + (result.vec[i] * 100).toFixed(1) + '%'));
         chart.append(dot);
       }
