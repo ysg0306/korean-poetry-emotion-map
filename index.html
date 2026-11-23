@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101620"><title>시의 결 · 한국 시 15편</title><link rel="stylesheet" href="preview/style.css?v=20261124-6"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101620"><title>시의 결 · 한국 시 15편</title><link rel="stylesheet" href="preview/style.css"></head>
 <body>
 <header><div class="brand">시의 결 <small>POETRY STUDIO</small></div><nav aria-label="화면 선택"><button class="active" data-page="read">시 읽기</button><button data-page="compare">전체 비교</button><button data-page="write">내 시 분석</button><button data-page="validation">분석 검증</button></nav></header>
 <main>
@@ -9,7 +9,7 @@
   <aside class="sidebar"><div class="sidebar-heading">나의 서가 <span id="library-count"></span></div><div class="shelf" id="shelf" aria-label="선정 시 15편"></div><div class="sidebar-note">작품을 고른 뒤 한 행을 선택해 보세요.<br>정서의 근거가 된 시어를 확인할 수 있어요.</div></aside>
   <div class="reading">
     <article class="poem"><div class="section-head"><span>READING · <span id="page-number"></span></span><span>THE POEM</span></div><h2 id="title"></h2><div class="byline" id="byline"></div><div class="poem-lines" id="lines" tabindex="0" role="region" aria-label="시 본문 전체"></div><div class="source" id="source"></div></article>
-    <section class="analysis"><div class="section-head"><span>단어가 보여주는 정서</span><span>EMOTION PROFILE</span></div><div class="dominant"><div class="circle" aria-hidden="true">✳</div><div><h3 id="dominant"></h3><p>사전으로 계산한 지배 정서</p></div></div><figure class="radar-figure"><figcaption>여덟 가지 감정 프로필</figcaption><div id="radar"></div><p class="caption radar-caption">중심 0% · 바깥선 100% · 눈금 간격 25%<br>연결선은 0%보다 큰 감정만 잇습니다.<br>0%인 감정은 중앙에 표시합니다.</p></figure><div class="bars" id="bars"></div><p class="stats" id="stats"></p><div class="interpretation"><span class="tiny">작품 해석</span><p class="theme" id="theme"></p><p class="reading-emotions" id="interpretation-emotions"></p><p class="interp" id="interp"></p><details class="interpretation-notes"><summary>해석 근거와 참고 자료</summary><div id="interpretation-evidence"></div></details></div></section>
+    <section class="analysis"><div class="section-head"><span>단어가 보여주는 정서</span><span>EMOTION PROFILE</span></div><div class="dominant"><div class="circle" aria-hidden="true">✳</div><div><h3 id="dominant"></h3><p>사전으로 계산한 지배 정서</p></div></div><figure class="radar-figure"><figcaption>여덟 가지 감정 프로필</figcaption><div id="radar"></div><p class="caption radar-caption">중심 0% · 바깥선 100% · 눈금 간격 25%<br>0%인 감정은 중앙에서 만납니다.</p></figure><div class="bars" id="bars"></div><p class="stats" id="stats"></p><div class="interpretation"><span class="tiny">작품 해석</span><p class="theme" id="theme"></p><p class="reading-emotions" id="interpretation-emotions"></p><p class="interp" id="interp"></p><details class="interpretation-notes"><summary>해석 근거와 참고 자료</summary><div id="interpretation-evidence"></div></details></div></section>
   </div>
   <div class="lower"><section class="panel"><h3>행을 따라 흐르는 감정</h3><p class="caption">막대 또는 본문의 행을 누르면 감지 근거가 보입니다. 높이 = 감지 횟수</p><div class="flow" id="flow" aria-label="행별 감정 감지 수"></div><div class="legend" id="legend"></div><div class="evidence" id="evidence" aria-live="polite"></div></section><section class="panel"><h3>비슷한 마음을 담은 시</h3><p class="caption">감정 비율의 코사인 유사도 상위 3편</p><div class="recommendations" id="recs"></div></section></div>
 </section>
@@ -18,5 +18,5 @@
 <section id="validation" class="hidden"><div class="panel validation-intro"><p class="eyebrow">READING &amp; VALIDATION</p><h2>계산과 해석 사이</h2><p>단어가 보여 주는 감정과 시 전체에서 읽히는 마음을 세 작품으로 비교했습니다. 제안한 개선과 실제 적용한 수정을 구분해 기록했습니다.</p></div><div id="validation-cases" class="validation-cases"></div></section>
 <p class="footnote">사용자가 선정한 한국 시 15편을 표시합니다. 본문 출처는 작품 아래에서 확인할 수 있습니다.<br>감정 비율은 사전에 감지된 표현의 빈도이며, 작품 전체의 의미나 분석의 정확도를 뜻하지 않습니다. 작품 해석은 본문에 근거한 하나의 읽기이며 계산 수치와 별도로 표시합니다.</p>
 </main><footer><span>시의 결 — 단어가 남긴 감정을 읽다</span><span>감성컴퓨팅 · 한국 시 15편</span></footer>
-<script src="preview/poems.js"></script><script src="preview/lexicon.js"></script><script src="preview/analyzer.js"></script><script src="preview/charts.js?v=20261124-6"></script><script src="preview/validation.js"></script><script src="preview/app.js?v=20261124-6"></script>
+<script src="preview/poems.js"></script><script src="preview/lexicon.js"></script><script src="preview/analyzer.js"></script><script src="preview/charts.js?v=20261124-7"></script><script src="preview/validation.js"></script><script src="preview/app.js"></script>
 </body></html>

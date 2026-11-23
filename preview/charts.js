@@ -24,7 +24,7 @@ window.PoetryCharts = (() => {
     const chart = svgNode('svg', { viewBox: '0 0 360 340', role: 'img',
       'aria-labelledby': id + '-title ' + id + '-desc', class: 'radar-chart' });
     chart.append(svgNode('title', { id: id + '-title' }, label + ' 감정 프로필'),
-      svgNode('desc', { id: id + '-desc' }, '중심 0%, 바깥선 100%, 눈금 간격 25%. 연결선은 0%보다 큰 감정의 점만 시계 방향으로 이으며, 0% 감정은 중앙에 표시합니다. ' +
+      svgNode('desc', { id: id + '-desc' }, '중심 0%, 바깥선 100%, 눈금 간격 25%. ' +
         emotions.map((emotion, i) => emotion.name + ' ' + (result.vec[i] * 100).toFixed(1) + '%').join(', ')));
     const cx = 180, cy = 166, radius = 96;
     const point = (i, distance) => {
@@ -39,16 +39,8 @@ window.PoetryCharts = (() => {
       const [x, y] = point(i, radius);
       chart.append(svgNode('line', { x1: cx, y1: cy, x2: x, y2: y, class: 'radar-spoke' }));
     });
-    const activePoints = emotions.flatMap((_, i) => result.vec[i] > 0
-      ? [point(i, radius * result.vec[i]).join(',')] : []);
-    // Join observed points without repeatedly retracing the origin for zero axes.
-    // Keep this an unfilled guide line; numeric labels remain the source of values.
-    if (activePoints.length >= 2) {
-      const outline = activePoints.length > 2 ? [...activePoints, activePoints[0]] : activePoints;
-      chart.append(svgNode('polyline', { points: outline.join(' '), class: 'radar-connection',
-        fill: 'none', stroke: '#efa574', 'stroke-width': 2.5,
-        'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
-    }
+    chart.append(svgNode('polygon', { points: emotions.map((_, i) => point(i, radius * result.vec[i]).join(',')).join(' '),
+      class: 'radar-profile' }));
     [0.25, 0.5, 0.75, 1].forEach(scale => {
       chart.append(svgNode('text', { x: cx + 7,
         y: cy - radius * scale - 3, class: 'radar-tick' }, scale * 100 + '%'));
