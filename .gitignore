@@ -1,0 +1,13 @@
+# Local research caches, generated PDFs and browser screenshots
+tmp/
+output/
+preview/*-proof.jpg
+preview/*.png
+preview/*.jpg
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

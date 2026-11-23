@@ -1,0 +1,149 @@
+"""Prepare browser data from the user's selected catalog and sourced text records."""
+from pathlib import Path
+import json
+import re
+import unicodedata
+
+# The 1920s transcriptions use s-series compound initials for tense sounds.
+# Modern fonts often show these as loose consonants instead of one syllable.
+# Apply only these four known initials; leave vocabulary and line breaks intact.
+READING_INITIALS = str.maketrans({'\u112d': '\u1101', '\u112f': '\u1104',
+                                  '\u1132': '\u1108', '\u1136': '\u110d'})
+
+def reading_text(text):
+    return unicodedata.normalize('NFC', text.translate(READING_INITIALS))
+
+ROOT = Path(__file__).resolve().parents[1]
+catalog = json.loads((ROOT / 'data/selected-poems.json').read_text(encoding='utf-8-sig'))
+poems = catalog['poems']
+assert len(poems) == 15 and len({poem['id'] for poem in poems}) == 15
+records = {}
+for path in sorted((ROOT / 'data').glob('texts-*.json')):
+    content = json.loads(path.read_text(encoding='utf-8-sig'))
+    for record in content if isinstance(content, list) else content['poems']:
+        if record.get('text') and record.get('sourceUrl'):
+            assert record['id'] not in records, record['id']
+            records[record['id']] = record
+
+# Image-checked replacement editions take precedence; original transcriptions
+# remain available in texts-*.json for comparison.
+for edition in json.loads((ROOT / 'data/reading-editions.json').read_text(encoding='utf-8')):
+    record = dict(records[edition['id']])
+    record.update(edition)
+    record.pop('verificationNotes', None)
+    record.pop('transcriptionNotes', None)
+    records[edition['id']] = record
+
+# The user requested a fresh modern-reading text for every selected poem.
+modern_editions = json.loads((ROOT / 'data/modern-poems.json').read_text(encoding='utf-8'))
+assert {item['id'] for item in modern_editions} == {poem['id'] for poem in poems}
+for edition in modern_editions:
+    record = dict(records[edition['id']])
+    record.update(edition)
+    record['rightsNote'] = ('선정 목록에 기록한 저자·사망 연도 기준으로 선정한 시 본문입니다. '
+                           '표기 대조를 위해 참고한 웹페이지의 현대 해설은 사용하지 않았습니다.')
+    record.pop('verificationNotes', None)
+    record.pop('transcriptionNotes', None)
+    records[edition['id']] = record
+
+interpretations = json.loads((ROOT / 'data/poem-interpretations.json').read_text(encoding='utf-8'))
+readings = {item['id']: item for item in interpretations['poems']}
+assert set(readings) == {poem['id'] for poem in poems}
+
+compiled = []
+for original in poems:
+    poem = dict(original)
+    record = records.get(poem['id'])
+    if record:
+        for key in ('text', 'source', 'sourceUrl', 'rightsNote', 'verifiedAt', 'textNotes',
+                    'edition', 'sectionHeadings', 'postscript', 'verificationSourceUrls'):
+            if key in record:
+                poem[key] = record[key]
+        notes = record.get('verificationNotes', record.get('transcriptionNotes', record.get('notes', [])))
+        poem['textNotes'] = reading_text(' '.join(notes) if isinstance(notes, list) else str(notes))
+        poem['sourceText'] = poem['text']
+        poem['text'] = reading_text(poem['sourceText'])
+        poem['displayNote'] = record.get('displayNote') or ('읽기용 본문: 옛한글 합용병서를 현대 된소리 글자로 바꾸었습니다. '
+                               '단어와 행갈이는 출처 전사본을 따릅니다.'
+                               if poem['text'] != poem['sourceText'] else '')
+        # Unhandled archaic syllables must be reviewed rather than silently shipped.
+        assert not re.search(r'[\u1100-\u11ff\ua960-\ua97f\ud7b0-\ud7ff]', poem['text']), poem['id']
+        poem['textReady'] = True
+    else:
+        poem['textReady'] = False
+    reading = readings[poem['id']]
+    assert len(reading['paragraphs']) >= 3 and all(s.strip() for s in reading['paragraphs'])
+    assert set(reading['emotionKeys']) <= {'joy','sadness','longing','love','hope','anger','anxiety','peace'}
+    poem['theme'] = reading['theme']
+    poem['interp'] = ' '.join(reading['paragraphs'])
+    poem['interpretationEmotionKeys'] = reading['emotionKeys']
+    poem['interpretationReferences'] = reading['references']
+    lines = [line for line in poem['text'].splitlines() if line.strip()]
+    poem['interpretationEvidence'] = [{'no': no, 'text': lines[no - 1]} for no in reading['evidenceLines']]
+    compiled.append(poem)
+
+review = ['현대 표기 시 15편 대조본',
+          '2026-11-23 · 출처의 현대 표기 본문을 대조하고 띄어쓰기·전사 오타를 정리한 읽기본입니다.',
+          '「거울」·「오감도」는 사용자 요청에 따라 작품 특유의 붙여쓰기 형식을 유지합니다.\n']
+for poem in compiled:
+    review += [f"{poem['order']:02}. {poem['title']} — {poem['poet']}", poem['text']]
+    if poem.get('postscript'):
+        review.append(poem['postscript'])
+    review += ['본문 출처: ' + poem['source'], poem['sourceUrl'], poem['textNotes'], '\n']
+(ROOT / 'docs/현대표기_시15편_대조본.txt').write_text('\n\n'.join(review), encoding='utf-8')
+
+(ROOT / 'preview/poems.js').write_text(
+    '// Generated from the user-selected catalog; do not edit this file manually.\n'
+    'window.POETRY_POEMS = ' + json.dumps(compiled, ensure_ascii=False, indent=2) + ';\n', encoding='utf-8')
+
+# Representative terms from the reviewed specification; variants do not inflate the term count.
+spec = (ROOT / 'DEVELOPMENT_SPEC.md').read_text(encoding='utf-8-sig')
+definitions = re.findall(r'^\| (joy|sadness|longing|love|hope|anger|anxiety|peace) \| ([^|]+) \| ([^|]+) \| (#[0-9A-Fa-f]+) \|', spec, re.M)
+aliases = {
+    '기쁨':['기쁘','기뻐','기쁜'], '즐거움':['즐겁','즐거워','즐거운'],
+    '웃음':['웃는','웃고','웃어','웃지','웃네','웃슴'], '흥겨움':['흥겹','흥겨'], '반가움':['반갑','반가운'],
+    '유쾌함':['유쾌'], '흐뭇함':['흐뭇'], '슬픔':['슬프','슬퍼','슬픈','슬푼'],
+    '향수':['鄕愁'], '울음':['울고','울어','우는'], '서러움':['서럽','서러','설움','설어','설음'],
+    '애달픔':['애달프','애달픈'], '그리움':['그립','그리워','그리운'],
+    '보고 싶음':['보고 싶','보고싶'], '기다림':['기다리','기다려','기다린'],
+    '사무침':['사무치','사무친'], '못 잊음':['못 잊','못잊'],
+    '돌아오길 바람':['돌아오길','돌아오기를'], '품에 안음':['품에 안','품에안'],
+    '꿈':['꿈꾸'], '일어섬':['일어서'], '피어남':['피어나'],
+    '삶의 의지':['살아가'], '전진':['나아가'], '노여움':['노여'], '성냄':['성내'],
+    '두려움':['두렵','두려'], '무서움':['무섭','무서','무서운'], '떨림':['떨리','떨려'],
+    '조마조마함':['조마조마'], '위태로움':['위태'], '잔잔함':['잔잔'],
+    '편안함':['편안'], '한가로움':['한가'], '느긋함':['느긋'], '쉼':['쉬어'],
+    '포근함':['포근'], '잠잠함':['잠잠']
+}
+emotions = []
+for key, name, definition, color in definitions:
+    name = name.strip()
+    row = re.search(r'^\| ' + re.escape(name) + r' \| ([^|]+) \|', spec, re.M)
+    terms = [word.strip() for word in row[1].split(',')]
+    assert len(terms) >= 10
+    emotions.append({'key':key, 'name':name, 'def':definition.strip(), 'color':color,
+                     'entries':[{'term':term, 'patterns':aliases.get(term, [])} for term in terms]})
+assert len(emotions) == 8
+additions = json.loads((ROOT / 'data/emotion-lexicon-additions.json').read_text(encoding='utf-8'))
+for addition in additions['entries']:
+    emotion = next(item for item in emotions if item['key'] == addition['emotion'])
+    entry = next((item for item in emotion['entries'] if item['term'] == addition['term']), None)
+    if entry is None:
+        entry = {'term': addition['term'], 'patterns': []}
+        emotion['entries'].append(entry)
+    entry['patterns'] = list(dict.fromkeys(entry['patterns'] + addition['patterns']))
+    entry['rationale'] = addition['rationale']
+    for option in ('matchTerm', 'excludeBefore', 'excludeAfter'):
+        if option in addition:
+            entry[option] = addition[option]
+    assert set(addition['poemIds']) <= {poem['id'] for poem in poems}
+(ROOT / 'preview/lexicon.js').write_text(
+    'window.POETRY_LEXICON_VERSION = ' + json.dumps(additions['version']) + ';\n'
+    'window.POETRY_EMOTIONS = ' + json.dumps(emotions,ensure_ascii=False,indent=2) + ';\n',encoding='utf-8')
+print(f'User-selected poems: {len(compiled)}; sourced texts: {len(records)}; emotion categories: {len(emotions)}')
+
+# GitHub Pages entry point. Keep the preview and published app on the same assets.
+entry = (ROOT / 'preview/index.html').read_text(encoding='utf-8')
+entry = entry.replace('href="style.css"', 'href="preview/style.css"')
+entry = re.sub(r'src="([^"/]+\.js)"', r'src="preview/\1"', entry)
+(ROOT / 'index.html').write_text(entry, encoding='utf-8')

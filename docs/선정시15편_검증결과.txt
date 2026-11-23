@@ -1,0 +1,105 @@
+시의 결 — 선정 15편 및 조건 검증 (대체 반영)
+확인일: 2026-11-23
+판정: 선정 조건 통과 / 본문 전수 검수 미완료
+기준 데이터: data/selected-poems.json
+
+[변경]
+남사당 → 밤기차에 그대를 보내고 (박용철, 1930)
+그날이 오면 → 싸늘한 이마 (박용철, 1930)
+대체작 모두 1930년 3월 『시문학』 창간호 발표 확인.
+출처: https://encykorea.aks.ac.kr/Article/E0020977
+
+[선정 조건]
+중복 없는 한국 시 15편: 통과
+8시인 전원 사망 연도 1962 이하: 통과 (최대 1961년)
+예시 앱 6시인과 겹치지 않는 작품 15편: 통과
+전체 본문·판본·행·연·개별 이용 조건 대조: 후속 작업
+선정 조건 통과는 완성된 앱용 데이터 또는 전체 과제 통과를 뜻하지 않는다.
+
+[현재 선정 목록]
+01. 빼앗긴 들에도 봄은 오는가 — 이상화 (후보 1번)
+    연도: 1926 / 사망: 1943 / 『개벽』 1926년 6월호
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0025323
+    생몰년: https://encykorea.aks.ac.kr/Article/E0044635
+
+02. 떠나가는 배 — 박용철 (후보 4번)
+    연도: 1930 / 사망: 1938 / 『시문학』 1930년 창간호
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0017195
+    생몰년: https://encykorea.aks.ac.kr/Article/E0020977
+
+03. 봄은 고양이로다 — 이장희 (후보 7번)
+    연도: 1924 / 사망: 1929 / 『금성』 1924년 5월호(제3호)
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0023782
+    생몰년: https://encykorea.aks.ac.kr/Article/E0045714
+
+04. 거울 — 이상 (후보 10번)
+    연도: 1933 / 사망: 1937 / 『가톨릭청년』 1933년 10월호
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0001861
+    생몰년: https://encykorea.aks.ac.kr/Article/E0044568
+
+05. 오감도 시제1호 — 이상 (후보 11번)
+    연도: 1934 / 사망: 1937 / 『조선중앙일보』 1934년 7월 24일
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0038074
+    생몰년: https://encykorea.aks.ac.kr/Article/E0044568
+
+06. 남으로 창을 내겠소 — 김상용 (후보 12번)
+    연도: 1934 / 사망: 1951 / 『문학』 1934년 2월호
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0012085
+    생몰년: https://encykorea.aks.ac.kr/Article/E0009362
+
+07. 논개 — 변영로 (후보 13번)
+    연도: 1922 / 사망: 1961 / 『신생활』 1922년 4월호
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0013010
+    생몰년: https://encykorea.aks.ac.kr/Article/E0022940
+
+08. 사슴 — 노천명 (후보 15번)
+    연도: 1938 / 사망: 1957 / 『산호림』 1938년 수록
+    작품 정보: https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?menuNo=200019&wrtSn=9023144
+    생몰년: https://encykorea.aks.ac.kr/Article/E0012918
+    참고: 1938년은 공유마당의 공표 기록 및 『산호림』 수록 연도. 초출과 수록 연도를 임의로 동일시하지 않는다.
+
+09. 밤기차에 그대를 보내고 — 박용철 (후보 5번)
+    연도: 1930 / 사망: 1938 / 『시문학』 1930년 3월 창간호
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0020977
+    생몰년: https://encykorea.aks.ac.kr/Article/E0020977
+    참고: 1930년 3월 『시문학』 창간호 발표 기록 확인. 본문 판본은 별도 대조한다.
+
+10. 나는 왕이로소이다 — 홍사용 (후보 18번)
+    연도: 1923 / 사망: 1947 / 『백조』 1923년 9월호
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0011306
+    생몰년: https://encykorea.aks.ac.kr/Article/E0064122
+
+11. 싸늘한 이마 — 박용철 (후보 6번)
+    연도: 1930 / 사망: 1938 / 『시문학』 1930년 3월 창간호
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0020977
+    생몰년: https://encykorea.aks.ac.kr/Article/E0020977
+    참고: 1930년 3월 『시문학』 창간호 발표 기록 확인. 본문 판본은 별도 대조한다.
+
+12. 나의 침실로 — 이상화 (후보 2번)
+    연도: 1923 / 사망: 1943 / 『백조』 1923년 9월호
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0011428
+    생몰년: https://encykorea.aks.ac.kr/Article/E0044635
+
+13. 새 한마리 — 이장희 (후보 9번)
+    연도: 1924 / 사망: 1929 / 『금성』 1924년 5월호(제3호)
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0045714
+    생몰년: https://encykorea.aks.ac.kr/Article/E0045714
+    참고: 백과사전 표기는 '새 한마리'. 이전 추천의 '새 한 마리'는 별도 작품이 아니며 최종 화면 제목은 채택 원문 판본과 대조한다.
+
+14. 통곡 — 이상화 (후보 3번)
+    연도: 1926 / 사망: 1943 / 『개벽』 1926년 발표
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0044635
+    생몰년: https://encykorea.aks.ac.kr/Article/E0044635
+
+15. 실바람 지나간 뒤 — 이장희 (후보 8번)
+    연도: 1924 / 사망: 1929 / 『금성』 1924년 5월호(제3호)
+    작품 정보: https://encykorea.aks.ac.kr/Article/E0045714
+    생몰년: https://encykorea.aks.ac.kr/Article/E0045714
+
+[향후 구현에 적용할 기억]
+현재 목록은 위 JSON을 기준으로 하며, 남사당·그날이 오면은 제외한다.
+원문은 AI 기억으로 채우지 않고 출처와 대조한다.
+text/source/sourceUrl/theme/interp의 null은 미완료 상태다.
+bibliographicReference는 발표·수록 기록이며 실제 본문 출처를 대신하지 않는다.
+사슴의 1938년 공표·시집 수록 기록은 초출과 동일하다고 단정하지 않는다.
+다음 작업: 15편의 원문 확보 및 판본·행·연·이용 조건 확인 후 필수 데이터 채우기.

@@ -1,0 +1,508 @@
+{
+  "schemaVersion": 1,
+  "kind": "selected-poem-catalog",
+  "selectedAt": "2026-11-23",
+  "selectionOrder": "사용자 원래 선택 순서 유지, 제외 2편의 자리에 대체작 배치",
+  "selectedCandidateNumbers": [
+    1,
+    4,
+    7,
+    10,
+    11,
+    12,
+    13,
+    15,
+    5,
+    18,
+    6,
+    2,
+    9,
+    3,
+    8
+  ],
+  "decision": "selection_eligibility_pass_full_dataset_pending",
+  "canonicalForFutureImplementation": true,
+  "assignmentRules": {
+    "requiredPoems": 15,
+    "minimumNewPoems": 5,
+    "maximumPoetDeathYear": 1962,
+    "examplePoets": [
+      "김소월",
+      "윤동주",
+      "한용운",
+      "이육사",
+      "정지용",
+      "김영랑"
+    ]
+  },
+  "summary": {
+    "poemCount": 15,
+    "poetCount": 8,
+    "newPoemCount": 15,
+    "latestPoetDeathYear": 1961,
+    "selectionEligibilityPassed": true,
+    "readyForApp": false
+  },
+  "usage": "선정 목록과 서지 조사용. text/source/theme/interp 미완성이므로 완성된 Poem 데이터로 앱에 바로 연결하지 않는다. 백과사전 해설 링크는 본문 출처가 아니다.",
+  "poems": [
+    {
+      "order": 1,
+      "candidateNumber": 1,
+      "id": "stolen-fields",
+      "title": "빼앗긴 들에도 봄은 오는가",
+      "poet": "이상화",
+      "year": "1926",
+      "poetDeath": 1943,
+      "bibliographicReference": "『개벽』 1926년 6월호",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0025323"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0044635",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 2,
+      "candidateNumber": 4,
+      "id": "departing-boat",
+      "title": "떠나가는 배",
+      "poet": "박용철",
+      "year": "1930",
+      "poetDeath": 1938,
+      "bibliographicReference": "『시문학』 1930년 창간호",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0017195"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0020977",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 3,
+      "candidateNumber": 7,
+      "id": "spring-is-a-cat",
+      "title": "봄은 고양이로다",
+      "poet": "이장희",
+      "year": "1924",
+      "poetDeath": 1929,
+      "bibliographicReference": "『금성』 1924년 5월호(제3호)",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0023782"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0045714",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 4,
+      "candidateNumber": 10,
+      "id": "mirror",
+      "title": "거울",
+      "poet": "이상",
+      "year": "1933",
+      "poetDeath": 1937,
+      "bibliographicReference": "『가톨릭청년』 1933년 10월호",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0001861"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0044568",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 5,
+      "candidateNumber": 11,
+      "id": "ogamdo-1",
+      "title": "오감도 시제1호",
+      "poet": "이상",
+      "year": "1934",
+      "poetDeath": 1937,
+      "bibliographicReference": "『조선중앙일보』 1934년 7월 24일",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0038074"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0044568",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 6,
+      "candidateNumber": 12,
+      "id": "south-facing-window",
+      "title": "남으로 창을 내겠소",
+      "poet": "김상용",
+      "year": "1934",
+      "poetDeath": 1951,
+      "bibliographicReference": "『문학』 1934년 2월호",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0012085"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0009362",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 7,
+      "candidateNumber": 13,
+      "id": "nongae",
+      "title": "논개",
+      "poet": "변영로",
+      "year": "1922",
+      "poetDeath": 1961,
+      "bibliographicReference": "『신생활』 1922년 4월호",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0013010"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0022940",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 8,
+      "candidateNumber": 15,
+      "id": "deer",
+      "title": "사슴",
+      "poet": "노천명",
+      "year": "1938",
+      "poetDeath": 1957,
+      "bibliographicReference": "『산호림』 1938년 수록",
+      "metadataSourceUrls": [
+        "https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?menuNo=200019&wrtSn=9023144"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0012918",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": [
+        "1938년은 공유마당의 공표 기록 및 『산호림』 수록 연도. 초출과 수록 연도를 임의로 동일시하지 않는다."
+      ]
+    },
+    {
+      "order": 9,
+      "candidateNumber": 5,
+      "id": "night-train",
+      "title": "밤기차에 그대를 보내고",
+      "poet": "박용철",
+      "year": "1930",
+      "poetDeath": 1938,
+      "bibliographicReference": "『시문학』 1930년 3월 창간호",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0020977"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0020977",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": [
+        "1930년 3월 『시문학』 창간호 발표 기록 확인. 본문 판본은 별도 대조한다."
+      ]
+    },
+    {
+      "order": 10,
+      "candidateNumber": 18,
+      "id": "i-am-a-king",
+      "title": "나는 왕이로소이다",
+      "poet": "홍사용",
+      "year": "1923",
+      "poetDeath": 1947,
+      "bibliographicReference": "『백조』 1923년 9월호",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0011306"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0064122",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 11,
+      "candidateNumber": 6,
+      "id": "cold-forehead",
+      "title": "싸늘한 이마",
+      "poet": "박용철",
+      "year": "1930",
+      "poetDeath": 1938,
+      "bibliographicReference": "『시문학』 1930년 3월 창간호",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0020977"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0020977",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": [
+        "1930년 3월 『시문학』 창간호 발표 기록 확인. 본문 판본은 별도 대조한다."
+      ]
+    },
+    {
+      "order": 12,
+      "candidateNumber": 2,
+      "id": "to-my-bedroom",
+      "title": "나의 침실로",
+      "poet": "이상화",
+      "year": "1923",
+      "poetDeath": 1943,
+      "bibliographicReference": "『백조』 1923년 9월호",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0011428"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0044635",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 13,
+      "candidateNumber": 9,
+      "id": "a-bird",
+      "title": "새 한마리",
+      "poet": "이장희",
+      "year": "1924",
+      "poetDeath": 1929,
+      "bibliographicReference": "『금성』 1924년 5월호(제3호)",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0045714"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0045714",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": [
+        "백과사전 표기는 '새 한마리'. 이전 추천의 '새 한 마리'는 별도 작품이 아니며 최종 화면 제목은 채택 원문 판본과 대조한다."
+      ]
+    },
+    {
+      "order": 14,
+      "candidateNumber": 3,
+      "id": "lamentation",
+      "title": "통곡",
+      "poet": "이상화",
+      "year": "1926",
+      "poetDeath": 1943,
+      "bibliographicReference": "『개벽』 1926년 발표",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0044635"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0044635",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    },
+    {
+      "order": 15,
+      "candidateNumber": 8,
+      "id": "after-the-breeze",
+      "title": "실바람 지나간 뒤",
+      "poet": "이장희",
+      "year": "1924",
+      "poetDeath": 1929,
+      "bibliographicReference": "『금성』 1924년 5월호(제3호)",
+      "metadataSourceUrls": [
+        "https://encykorea.aks.ac.kr/Article/E0045714"
+      ],
+      "deathSourceUrl": "https://encykorea.aks.ac.kr/Article/E0045714",
+      "newRelativeToExample": true,
+      "eligibilityStatus": "pass",
+      "text": null,
+      "source": null,
+      "sourceUrl": null,
+      "theme": null,
+      "interp": null,
+      "verification": {
+        "metadataCheckedAt": "2026-11-23",
+        "fullTextVerified": false,
+        "fullTextRightsChecked": false,
+        "readyForApp": false
+      },
+      "notes": []
+    }
+  ],
+  "replacementHistory": [
+    {
+      "removed": "남사당",
+      "added": "밤기차에 그대를 보내고",
+      "reason": "사용자 요청: 연도 설명이 애매한 작품을 명확한 발표 기록이 있는 작품으로 대체",
+      "changedAt": "2026-11-23"
+    },
+    {
+      "removed": "그날이 오면",
+      "added": "싸늘한 이마",
+      "reason": "사용자 요청: 연도 설명이 애매한 작품을 명확한 발표 기록이 있는 작품으로 대체",
+      "changedAt": "2026-11-23"
+    }
+  ],
+  "originalSelectedCandidateNumbers": [
+    1,
+    4,
+    7,
+    10,
+    11,
+    12,
+    13,
+    15,
+    16,
+    18,
+    20,
+    2,
+    9,
+    3,
+    8
+  ]
+}
