@@ -45,7 +45,9 @@ window.PoetryCharts = (() => {
     // Keep this an unfilled guide line; numeric labels remain the source of values.
     if (activePoints.length >= 2) {
       const outline = activePoints.length > 2 ? [...activePoints, activePoints[0]] : activePoints;
-      chart.append(svgNode('polyline', { points: outline.join(' '), class: 'radar-connection' }));
+      chart.append(svgNode('polyline', { points: outline.join(' '), class: 'radar-connection',
+        fill: 'none', stroke: '#efa574', 'stroke-width': 2.5,
+        'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
     }
     [0.25, 0.5, 0.75, 1].forEach(scale => {
       chart.append(svgNode('text', { x: cx + 7,
