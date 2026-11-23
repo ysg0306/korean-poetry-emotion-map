@@ -250,7 +250,7 @@ $('analyze').addEventListener('click', () => {
   if (!r.totalHits) return notice(target, '감지된 감정 시어가 없습니다. 사전에 없는 표현은 분석되지 않을 수 있습니다.');
   const radarContainer = el('div', 'input-radar'); renderRadar(radarContainer, r, '입력한 시');
   const barContainer = el('div', 'bars'); renderBars(barContainer, r);
-  target.append(radarContainer, el('p', 'caption radar-caption', '중심 0% · 바깥선 100% · 눈금 간격 25% · 0%인 감정은 중앙에서 만납니다.'),
+  target.append(radarContainer, el('p', 'caption radar-caption', '안쪽 원 0% · 바깥 원 100% · 눈금 간격 25% · 막대 길이로 비율을 비교합니다.'),
     barContainer, el('p', '', stats(r)), el('p', '', r.lines.flatMap(l => l.hits.map(h => h.word + '(' + emotions[h.emotion].name + ')')).join(', ')));
   const ownFlow = el('div', 'flow'), ownLegend = el('div', 'legend');
   ownFlow.id = 'own-flow';
